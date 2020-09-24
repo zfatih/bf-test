@@ -1,0 +1,1 @@
+createGame(document.getElementsByTagName("BODY")[0], "X");
