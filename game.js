@@ -56,7 +56,7 @@ function createGame(parent, userSign){
                     return;
                 }
 
-                let nextMoveAI = AI.calculateNextMove(state.board);
+                let nextMoveAI = AI.calculateNextMove(state.board, userSign, AISign);
                 if(nextMoveAI === false){
                     //draw
                     endEvent(DRAW);
@@ -143,8 +143,8 @@ function createGame(parent, userSign){
                 state.board[(i+2)%3][j] === sign
             ) || (//checking right diagonal
                 i + j === 2 && //it is on right diagonal
-                state.board[(i+1)%3][(j-1)%3] == sign &&
-                state.board[(i+2)%3][(j-2)%3] == sign
+                state.board[(i+1)%3][(j+2)%3] == sign &&
+                state.board[(i+2)%3][(j+1)%3] == sign
             ) || (//cheking left diagonal
                 i == j && //it is on left diagonal
                 state.board[(i+1)%3][(j+1)%3] == sign &&
